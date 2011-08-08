@@ -1,0 +1,10 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+        <f:nested>
+        <div style="padding-left:2em">
+            <f:hetero-list name="buildstep" hasHeader="true"
+                 descriptors="${h.getBuilderDescriptors(it)}"
+                 items="${it.buildSteps}"
+                 addCaption="${%Add build step}"/>
+        </div>
+        </f:nested>
+</j:jelly>
