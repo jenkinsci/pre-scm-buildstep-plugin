@@ -1,7 +1,7 @@
 <!--
   - The MIT License
   -
-  - Copyright (c) 2009-2011, Manufacture Française des Pneumatiques Michelin, Romain Seguy
+  - Copyright (c) 2011, Chris Johnson
   -
   - Permission is hereby granted, free of charge, to any person obtaining a copy
   - of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,9 @@
   -->
 
 <div>
-Allows build Steps to be performed before the SCM performs any modification to the workspace,    
-<BR/>Warnings: 
+Allows build Steps to be performed before the SCM performs any modification to the workspace,
+<BR/>Warnings:
 <BR/>The SCM may modify or remove any files that are in the workspace, before the main build steps.
-<BR/>Enviroment variables may not exist at this point, if they are created by other plugins, check using a shell script and the ENV(unix) or equilivent for your system.
-<BR/>IMPORTANT: Failed build steps will not cause the job to faile at this point.
+<BR/>Enviroment variables may not exist at this point, if they are created by other plugins, check using a shell script and the env (unix) or equivalent for your executor system.
+<BR/>IMPORTANT: Failed build steps will not cause the job to fail at this point, and all build steps will be called regardless of the result.
 </div>
