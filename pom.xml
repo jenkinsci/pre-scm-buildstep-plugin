@@ -11,7 +11,7 @@
   <packaging>hpi</packaging>
   <name>Pre SCM BuildStep Plugin</name>
   <version>0.1-SNAPSHOT</version>
-  <url></url>
+  <url>https://wiki.jenkins-ci.org/display/JENKINS/pre-scm-buildstep</url>
 
   <developers>
     <developer>
@@ -21,9 +21,9 @@
   </developers>
 
   <scm>
-    <connection></connection>
-    <developerConnection></developerConnection>
-    <url></url>
+    <connection>scm:git:ssh://github.com:jenkinsci/pre-scm-buildstep-plugin.git</connection>
+    <developerConnection>scm:git:ssh://github.com:jenkinsci/pre-scm-buildstep-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/pre-scm-buildstep-plugin</url>
   </scm>
 
   <build>
