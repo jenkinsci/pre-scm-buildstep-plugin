@@ -21,8 +21,8 @@
   </developers>
 
   <scm>
-    <connection>scm:git:ssh://github.com:jenkinsci/pre-scm-buildstep-plugin.git</connection>
-    <developerConnection>scm:git:ssh://github.com:jenkinsci/pre-scm-buildstep-plugin.git</developerConnection>
+    <connection>scm:git:git://github.com/jenkinsci/pre-scm-buildstep-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/pre-scm-buildstep-plugin.git</developerConnection>
     <url>https://github.com/jenkinsci/pre-scm-buildstep-plugin</url>
   </scm>
 
