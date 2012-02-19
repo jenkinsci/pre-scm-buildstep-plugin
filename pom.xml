@@ -10,7 +10,7 @@
   <artifactId>preSCMbuildstep</artifactId>
   <packaging>hpi</packaging>
   <name>Pre SCM BuildStep Plugin</name>
-  <version>0.2-SNAPSHOT</version>
+  <version>0.2</version>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/pre-scm-buildstep</url>
 
   <developers>
