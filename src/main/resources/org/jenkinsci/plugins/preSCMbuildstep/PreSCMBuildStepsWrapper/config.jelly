@@ -29,6 +29,7 @@
                  descriptors="${h.getBuilderDescriptors(it)}"
                  items="${instance.buildSteps}"
                  addCaption="${%Add build step}"/>
+            <f:checkbox field="failOnError" title="Fail the build on error"/>
         </div>
         </f:nested>
 </j:jelly>

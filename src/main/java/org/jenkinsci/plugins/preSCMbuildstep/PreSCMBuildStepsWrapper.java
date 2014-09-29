@@ -22,10 +22,10 @@ package org.jenkinsci.plugins.preSCMbuildstep;
  * THE SOFTWARE.
  */
 
+import hudson.AbortException;
 import hudson.Extension;
 import hudson.Launcher;
 import hudson.model.BuildListener;
-import hudson.model.Environment;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
 import hudson.model.Descriptor;
@@ -37,7 +37,6 @@ import hudson.tasks.BuildStep;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.List;
 
 
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -54,14 +53,17 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
      */
     public final ArrayList<BuildStep> buildSteps;
 
+    public final boolean failOnError;
+
     /**
      * Constructor taking a list of buildsteps to use.
      *
      * @param buildstep list of but steps configured in the UI
      */
     @DataBoundConstructor
-    public PreSCMBuildStepsWrapper(ArrayList<BuildStep> buildstep) {
-            this.buildSteps = buildstep;
+    public PreSCMBuildStepsWrapper(ArrayList<BuildStep> buildstep, boolean failOnError) {
+        this.buildSteps = buildstep;
+        this.failOnError = failOnError;
     }
 
     /**
@@ -109,6 +111,9 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
         for (BuildStep bs : buildSteps)  {
             if (!bs.prebuild(build, listener)) {
                 log.println("Failed pre build for " + bs.toString());
+                if (failOnError) {
+                    throw new AbortException("pre-build step failed to setup environment");
+                }
             }
         }
         /* end of prebuild steps */
@@ -121,6 +126,9 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
                 }
             } else if (!bs.perform(build, launcher, listener)) {
                 log.println("Failed build for " + bs.toString());
+                if (failOnError) {
+                    throw new AbortException("pre-build step failed to setup environment");
+                }
             } else {
                 log.println("Success build for" + bs.toString());
             }
