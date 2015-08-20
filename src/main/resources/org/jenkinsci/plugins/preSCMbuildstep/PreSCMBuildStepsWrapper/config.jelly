@@ -29,7 +29,26 @@
                  descriptors="${h.getBuilderDescriptors(it)}"
                  items="${instance.buildSteps}"
                  addCaption="${%Add build step}"/>
-            <f:checkbox field="failOnError" title="Fail the build on error"/>
         </div>
+        </f:nested>
+        <f:nested>
+            <table>
+                <f:entry title="Action on pre-build failure:">
+                    <st:nbsp /><st:nbsp />
+                    <f:radio name="actionOnError"
+                             checked="${instance.actionOnError == null || instance.actionOnError == 'continue'}" value="continue"/>
+                    <label class="attach-previous">Continue to build steps</label>
+
+                    <st:nbsp /><st:nbsp />
+                    <f:radio name="actionOnError"
+                             checked="${instance.actionOnError == 'fail'}" value="fail"/>
+                    <label class="attach-previous">Fail build</label>
+
+                    <st:nbsp /><st:nbsp />
+                    <f:radio name="actionOnError"
+                             checked="${instance.actionOnError == 'terminate'}" value="terminate"/>
+                    <label class="attach-previous">Terminate build</label>
+                </f:entry>
+            </table>
         </f:nested>
 </j:jelly>
