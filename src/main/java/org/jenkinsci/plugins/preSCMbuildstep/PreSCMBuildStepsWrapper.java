@@ -33,11 +33,11 @@ import hudson.model.Cause.LegacyCodeCause;
 import hudson.tasks.BuildWrapper;
 import hudson.tasks.BuildTrigger;
 import hudson.tasks.BuildStep;
+import hudson.model.Result;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -55,15 +55,18 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
 
     public final boolean failOnError;
 
+    public final String actionOnError;
+
     /**
      * Constructor taking a list of buildsteps to use.
      *
      * @param buildstep list of but steps configured in the UI
      */
     @DataBoundConstructor
-    public PreSCMBuildStepsWrapper(ArrayList<BuildStep> buildstep, boolean failOnError) {
+    public PreSCMBuildStepsWrapper(ArrayList<BuildStep> buildstep, boolean failOnError, String actionOnError) {
         this.buildSteps = buildstep;
         this.failOnError = failOnError;
+        this.actionOnError = actionOnError;
     }
 
     /**
@@ -107,16 +110,24 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
             return;
         }
 
-        log.println("Running Prebuild steps");
+        log.println("Running pre-build steps");
+        log.println("Value of actionOnError: " + actionOnError);
         for (BuildStep bs : buildSteps)  {
             if (!bs.prebuild(build, listener)) {
-                log.println("Failed pre build for " + bs.toString());
-                if (failOnError) {
+                log.println("Error occurred on pre-build in " + bs.toString());
+                if (actionOnError.equals("fail")) {
                     throw new AbortException("pre-build step failed to setup environment");
+                } else if (actionOnError.equals("terminate")) {
+                    log.println("Build will be terminated");
+                    build.setResult(Result.NOT_BUILT);
+                    throw new InterruptedException("Terminating build");
+                } else {
+                    log.println("Ignoring pre-build error, continue to build steps");
                 }
             }
         }
         /* end of prebuild steps */
+        log.println("Analyzing pre-build results");
         for (BuildStep bs : buildSteps) {
             if (bs instanceof BuildTrigger) {
                 BuildTrigger bt = (BuildTrigger) bs;
@@ -125,9 +136,15 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
                     p.scheduleBuild(0, new LegacyCodeCause());
                 }
             } else if (!bs.perform(build, launcher, listener)) {
-                log.println("Failed build for " + bs.toString());
-                if (failOnError) {
-                    throw new AbortException("pre-build step failed to setup environment");
+                log.println("Error occurred on pre-build in " + bs.toString());
+                if (actionOnError.equals("fail")) {
+                    throw new AbortException("Pre-build step failed to setup environment");
+                } else if (actionOnError.equals("terminate")) {
+                    log.println("Build will be terminated");
+                    build.setResult(Result.NOT_BUILT);
+                    throw new InterruptedException("Terminating build");
+                } else {
+                    log.println("Ignoring pre-build error, continue to build steps");
                 }
             } else {
                 log.println("Success build for" + bs.toString());
