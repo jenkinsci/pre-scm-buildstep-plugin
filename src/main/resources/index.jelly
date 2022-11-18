@@ -1,3 +1,4 @@
+<?jelly escape-by-default='true'?>
 <div>
   This plugin allows build steps to be performed before the SCM step performs an action.
 </div>
