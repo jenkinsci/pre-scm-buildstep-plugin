@@ -67,11 +67,11 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
     }
 
     /**
-     * Overridden setup returns a noop class as we don't want to add annything here.
+     * Overridden setup returns a noop class as we don't want to add anything here.
      *
-     * @param build
-     * @param launcher
-     * @param listener
+     * @param build the running build
+     * @param launcher available launcher to run steps in the build
+     * @param listener destination that will receive information about steps as they progress
      * @return noop Environment class
      */
      @Override
@@ -85,11 +85,11 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
      *
      * Checks to make sure we have some buildsteps set,
      * and then calls the prebuild and perform on all of them.
-     * @todo handle build steps failure in some sort of reasonable way
+     * TODO: handle build steps failure in some sort of reasonable way
      *
-     * @param build
-     * @param launcher
-     * @param listener
+     * @param build the running build
+     * @param launcher available launcher to run steps in the build
+     * @param listener destination that will receive information about steps as they progress
      */
     @Override
     public void preCheckout(AbstractBuild build, Launcher launcher,
