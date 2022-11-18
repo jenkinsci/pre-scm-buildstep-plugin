@@ -27,6 +27,10 @@
     <tag>HEAD</tag>
   </scm>
 
+  <properties>
+    <jenkins.version>2.332.4</jenkins.version>
+  </properties>
+
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
@@ -40,5 +44,4 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
-</project>  
-
+</project>
