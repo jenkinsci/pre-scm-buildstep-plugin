@@ -13,6 +13,10 @@
   <version>0.4-SNAPSHOT</version>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/pre-scm-buildstep</url>
 
+  <properties>
+    <jenkins.version>2.332.4</jenkins.version>
+  </properties>
+
   <developers>
     <developer>
       <id>cjo9900</id>
@@ -21,7 +25,7 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/pre-scm-buildstep-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/pre-scm-buildstep-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/pre-scm-buildstep-plugin.git</developerConnection>
     <url>https://github.com/jenkinsci/pre-scm-buildstep-plugin</url>
     <tag>HEAD</tag>
