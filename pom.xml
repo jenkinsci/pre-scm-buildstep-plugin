@@ -10,7 +10,7 @@
   <artifactId>preSCMbuildstep</artifactId>
   <packaging>hpi</packaging>
   <name>Pre SCM BuildStep Plugin</name>
-  <version>${revision}${changelist}</version>
+  <version>${changelist}</version>
   <url>https://github.com/${gitHubRepo}</url>
 
   <developers>
@@ -28,8 +28,7 @@
   </scm>
 
   <properties>
-    <revision>0.4</revision>
-    <changelist>-SNAPSHOT</changelist>
+    <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/pre-scm-buildstep-plugin</gitHubRepo>
     <jenkins.version>2.332.4</jenkins.version>
     <spotbugs.effort>Max</spotbugs.effort>
