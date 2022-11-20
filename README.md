@@ -8,7 +8,7 @@ They can call other scripts that need to be run before SCM checkout.
 
 ![](docs/images/pre_scm_buildstep_config.png)
 
-This plugin was originally written to provide a build step point where a perl script can be run after detecting changes in the polling but before the SCM does the checkout.
+This plugin was originally written to provide a build step point where a perl script could be run after detecting changes in the polling but before the SCM checkout.
 To make it more usable and flexible it was decided to allow any number of build steps to be added.
 
 ## Warnings on the use of this plugin
