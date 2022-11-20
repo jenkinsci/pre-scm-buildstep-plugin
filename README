@@ -1,1 +1,0 @@
-Jenkins Plugin to allow build steps to be run before the SCM does any checkout.
