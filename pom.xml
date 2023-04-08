@@ -24,8 +24,19 @@
 
   <developers>
     <developer>
+      <id>markewaite</id>
+      <name>Mark Waite</name>
+      <email>mark.earl.waite@gmail.com</email>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
       <id>cjo9900</id>
       <name>Chris Johnson</name>
+      <roles>
+        <role>emeritus</role>
+      </roles>
     </developer>
   </developers>
 
