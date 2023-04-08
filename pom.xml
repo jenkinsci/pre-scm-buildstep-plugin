@@ -15,6 +15,13 @@
   <name>Pre SCM BuildStep Plugin</name>
   <url>https://github.com/${gitHubRepo}</url>
 
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+
   <developers>
     <developer>
       <id>cjo9900</id>
