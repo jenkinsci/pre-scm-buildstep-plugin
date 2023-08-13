@@ -40,7 +40,7 @@
     </developer>
   </developers>
 
-  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
+  <scm>
     <connection>scm:git:https://github.com/${gitHubRepo}</connection>
     <developerConnection>scm:git:git@github.com:${gitHubRepo}.git</developerConnection>
     <tag>${scmTag}</tag>
@@ -54,8 +54,7 @@
     <jenkins.version>2.387.3</jenkins.version>
     <spotbugs.effort>Max</spotbugs.effort>
     <spotbugs.threshold>Low</spotbugs.threshold>
-    <!-- TODO: Enable spotless when Java 21 issue is fixed -->
-    <!-- <spotless.check.skip>false</spotless.check.skip> -->
+    <spotless.check.skip>false</spotless.check.skip>
   </properties>
 
   <repositories>
