@@ -52,6 +52,9 @@
     <!-- atypical gitHubRepo value due to artifactId -->
     <gitHubRepo>jenkinsci/pre-scm-buildstep-plugin</gitHubRepo>
     <jenkins.version>2.387.3</jenkins.version>
+    <!-- TODO: Remove when plugin pom is using this version or newer -->
+    <!-- https://github.com/jenkinsci/plugin-pom/pull/869 -->
+    <spotbugs-maven-plugin.version>4.8.2.0</spotbugs-maven-plugin.version>
     <spotbugs.effort>Max</spotbugs.effort>
     <spotbugs.threshold>Low</spotbugs.threshold>
     <spotless.check.skip>false</spotless.check.skip>
