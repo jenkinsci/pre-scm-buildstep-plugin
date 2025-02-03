@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.88</version>
+    <version>5.6</version>
     <relativePath />
   </parent>
 
@@ -33,8 +33,8 @@
     <changelist>999999-SNAPSHOT</changelist>
     <!-- atypical gitHubRepo value due to artifactId -->
     <gitHubRepo>jenkinsci/pre-scm-buildstep-plugin</gitHubRepo>
-    <jenkins.baseline>2.426</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
+    <jenkins.baseline>2.479</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <spotbugs.effort>Max</spotbugs.effort>
     <spotbugs.threshold>Low</spotbugs.threshold>
     <spotless.check.skip>false</spotless.check.skip>

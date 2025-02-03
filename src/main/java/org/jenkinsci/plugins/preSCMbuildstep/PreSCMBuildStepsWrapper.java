@@ -110,8 +110,7 @@ public class PreSCMBuildStepsWrapper extends BuildWrapper {
         }
         /* end of prebuild steps */
         for (BuildStep bs : buildSteps) {
-            if (bs instanceof BuildTrigger) {
-                BuildTrigger bt = (BuildTrigger) bs;
+            if (bs instanceof BuildTrigger bt) {
                 for (AbstractProject p : bt.getChildProjects()) {
                     log.println("Triggering build for " + p.getDisplayName());
                     p.scheduleBuild(0, new LegacyCodeCause());
